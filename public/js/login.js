@@ -1,15 +1,15 @@
-$("#login").on("submit", loginButtonGo);
-$("#loginBut").on("click", loginButtonGo);
-
 const loginButtonGo = async (e) => {
   e.preventDefault();
-  const email = $("#email");
-  const pass = $("#pass");
+  const email = document.querySelector("#loginEmail").value.trim();
+  const password = document.querySelector("#loginPass").value.trim();
 
-  if (email && pass) {
+  console.log(email);
+  console.log(password);
+  if (email && password) {
     const res = await fetch("/api/users/login", {
       method: "POST",
-      body: JSON.stringify({ email, pass }),
+      body: JSON.stringify({ email, password }),
+      headers: { "Content-Type": "application/json" },
     });
 
     if (res.ok) {
@@ -19,3 +19,6 @@ const loginButtonGo = async (e) => {
     }
   }
 };
+
+$("#login").on("submit", loginButtonGo);
+$("#loginBut").on("click", loginButtonGo);

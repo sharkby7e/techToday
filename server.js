@@ -7,14 +7,12 @@ const routes = require("./controllers");
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const PORT = process.env.PORT || 3001;
 
 const app = express();
-const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
-
-app.use(routes);
 
 // const hbs = exphbs.create({helpers});
 // app.engine("handlebars", hbs.engine);
@@ -24,6 +22,7 @@ const hbs = exphbs.create({
   // helpers: helpers,
   extname: ".hbs",
 });
+console.log(hbs);
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 
@@ -36,9 +35,10 @@ const sess = {
     db: sequelize,
   }),
 };
-
 app.use(session(sess));
 
-sequelize.sync({ force: false }).then(() => {
+app.use(routes);
+
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });

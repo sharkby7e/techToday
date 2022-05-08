@@ -13,7 +13,7 @@ const loginButtonGo = async (e) => {
     });
 
     if (res.ok) {
-      document.location.replace("/dashboard");
+      document.location.replace("/");
     } else {
       alert(res.statusText);
     }

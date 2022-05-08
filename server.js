@@ -12,14 +12,11 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // const hbs = exphbs.create({helpers});
-// const hbs = exphbs.create();
-// app.engine("handlebars", hbs.engine);
-// app.set("view engine", "handlebars");
-
-const hbs = exphbs.create({
-  // helpers: helpers,
-  extname: ".hbs",
-});
+const hbs = exphbs.create();
+// const hbs = exphbs.create({
+//   // helpers: helpers,
+//   extname: ".hbs",
+// });
 
 const sess = {
   secret: "SuperDuper Secreter Secret Secret",
@@ -32,8 +29,10 @@ const sess = {
 };
 app.use(session(sess));
 
-app.engine("hbs", hbs.engine);
-app.set("view engine", "hbs");
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
+// app.engine("hbs", hbs.engine);
+// app.set("view engine", "hbs");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

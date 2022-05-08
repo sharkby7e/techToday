@@ -24,6 +24,17 @@ router.post("/login", async (req, res) => {
       res.status(400).json({ message: "Please check your email and password" });
       return;
     }
+    const valid = await user.checkPassword(req.body.password);
+
+    if (!valid) {
+      res.status(400).json({ message: "Please check your email and password" });
+      return;
+    }
+    req.session.save(() => {
+      req.session.user_id = user.id;
+      req.session.logged_in = true;
+      res.json({ user: user, message: `Thanks for logging in, ${user.name}` });
+    });
   } catch (err) {
     res.status(400).json(err);
   }

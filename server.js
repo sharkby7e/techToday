@@ -15,16 +15,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // const hbs = exphbs.create({helpers});
-// app.engine("handlebars", hbs.engine);
-// app.set("view engine", "handlebars");
+const hbs = exphbs.create();
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
-const hbs = exphbs.create({
-  // helpers: helpers,
-  extname: ".hbs",
-});
-console.log(hbs);
-app.engine("hbs", hbs.engine);
-app.set("view engine", "hbs");
+// const hbs = exphbs.create({
+//   // helpers: helpers,
+//   extname: ".hbs",
+// });
+// app.engine("hbs", hbs.engine);
+// app.set("view engine", "hbs");
 
 const sess = {
   secret: "SuperDuper Secreter Secret Secret",

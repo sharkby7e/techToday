@@ -1,4 +1,6 @@
-$("#login").on("click", loginButtonGo);
+$("#login").on("submit", loginButtonGo);
+$("#loginBut").on("click", loginButtonGo);
+
 const loginButtonGo = async (e) => {
   e.preventDefault();
   const email = $("#email");

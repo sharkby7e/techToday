@@ -1,3 +1,4 @@
+<!-- <!DOCTYPE html>  -->
 <html lang="en">
   <head>
     <title>Tech Today</title>
@@ -19,8 +20,12 @@
         <div class="nav-wrapper deep-purple">
           <a href="/" class="brand-logo right">Tech Today</a>
           <ul id="nav-mobile" class="left hide-on-med-and-down">
-            {{! <li><a href="/">Dashboard</a></li> }}
-            <li><a href="/login">Login</a></li>
+            {{#if logged_in}}
+              <li><a href="/dashboard">Dashboard</a></li>
+              <li><a href="/api/users/logout">Logout</a></li>
+            {{else}}
+              <li><a href="/login">Login</a></li>
+            {{/if}}
           </ul>
         </div>
       </nav>

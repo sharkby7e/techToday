@@ -12,8 +12,17 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers
+// Inform Express.js on which template engine to use
 // const hbs = exphbs.create({helpers});
-const hbs = exphbs.create();
+// app.engine("handlebars", hbs.engine);
+// app.set("view engine", "handlebars");
+const hbs = exphbs.create({
+  // helpers: helpers,
+  extname: ".hbs",
+});
+app.engine("hbs", hbs.engine);
+app.set("view engine", "hbs");
+// app.set("views", "./views");
 
 const sess = {
   secret: "SuperDuper Secreter Secret Secret",
@@ -26,10 +35,6 @@ const sess = {
 };
 
 app.use(session(sess));
-
-// Inform Express.js on which template engine to use
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

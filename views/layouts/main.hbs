@@ -19,8 +19,8 @@
         <div class="nav-wrapper deep-purple">
           <a href="/" class="brand-logo right">Tech Today</a>
           <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a href="../signUp.hbs">Dashboard</a></li>
-            <li><a href="../login">Login</a></li>
+            {{! <li><a href="/">Dashboard</a></li> }}
+            <li><a href="/login">Login</a></li>
           </ul>
         </div>
       </nav>
@@ -28,6 +28,9 @@
     {{{body}}}
 
     <!-- jquery script -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    ></script>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="

@@ -4,9 +4,35 @@
     <title>Tech Today</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="../../public/" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link href="../../public/css/style.css" rel="stylesheet" />
   </head>
   <body>
+    <header>
+      <nav>
+        <div class="nav-wrapper deep-purple">
+          <a href="/" class="brand-logo right">Tech Today</a>
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="../signUp.handlebars">Profile</a></li>
+            <li><a href="../login">Login</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     {{{body}}}
+
+    <!-- jquery script -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

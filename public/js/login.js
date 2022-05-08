@@ -11,11 +11,11 @@ const loginButtonGo = async (e) => {
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
     });
-
     if (res.ok) {
-      document.location.replace("/");
+      document.location.replace("/dashboard");
+      res.json().then((data) => alert(data.message));
     } else {
-      alert(res.statusText);
+      res.json().then((data) => alert(data.message));
     }
   }
 };

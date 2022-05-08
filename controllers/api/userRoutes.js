@@ -21,13 +21,13 @@ router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ where: { email: req.body.email } });
     if (!user) {
-      res.status(400).json({ message: "Please check your email and password" });
+      res.status(400).json({ message: "Incorrect email or Password!" });
       return;
     }
     const valid = await user.checkPassword(req.body.password);
 
     if (!valid) {
-      res.status(400).json({ message: "Please check your email and password" });
+      res.status(400).json({ message: "Incorrect email or Password!" });
       return;
     }
     req.session.save(() => {
@@ -37,6 +37,16 @@ router.post("/login", async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.get("/logout", (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.redirect("/");
+    });
+  } else {
+    res.status(404).end;
   }
 });
 

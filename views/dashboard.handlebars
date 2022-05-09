@@ -1,2 +1,11 @@
 <!-- <!DOCTYPE html> -->
-<h2> THIS IS THE DASHBOARD</h2>
+<h3 class="center-align">Welcome to your Dashboard</h3>
+
+<h4 class="center-align">{{name}}'s Posts</h4>
+{{#each posts}}
+  <div class="card-panel amber lighten-5 hoverable">
+    <a class="blue-grey-text" href="/posts/{{id}}">
+      <h4>{{title}}</h4></a>
+    <h5>Written by you on {{format_date date_created}}</h5>
+  </div>
+{{/each}}

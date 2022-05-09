@@ -1,2 +1,8 @@
 <!-- <!DOCTYPE html>  -->
-<h2>THIS IS THE HOMEPAGE</h2>
+<h2 class="center-align">Welcome to Tech Today</h2>
+<h3 class="center-align">Here are the latest posts</h3>
+<div class = "container">
+  {{#each posts}}
+  {{> postView}}
+  {{/each}}
+</div>

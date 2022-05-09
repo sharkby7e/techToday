@@ -1,4 +1,19 @@
 <!-- <!DOCTYPE html> -->
-<h4>{{this.title}}</h4>
+<h2 class="blue-grey-text text-darken-3">{{title}}</h2>
+<div class="row">
+    <div class="col s12 ">
+      <div class="card amber lighten-5">
+        <div class="card-content teal-text text-darken-4">
+          <p style="font-size: 1.5rem;">{{body}}</p>
+        </div>
+        <div class="card-content">
+          <p>Posted by {{user.name}} on {{format_date date_created}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>{{this.body}}</p>
+<h3>Comments</h3>
+{{#each comments }}
+{{> commentPartial}}
+{{/each}}

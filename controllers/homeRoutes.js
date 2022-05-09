@@ -34,6 +34,7 @@ router.get("/posts/:id", async (req, res) => {
         },
       ],
     });
+
     const post = postData.get({ plain: true });
     res.render("postPage", {
       ...post,

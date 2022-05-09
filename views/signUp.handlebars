@@ -1,28 +1,35 @@
 <!-- <!DOCTYPE html>  -->
-<h2>THIS IS THE SIGNUP PAGE</h2>
+<h2 class="center-align blue-text text-darken-2">Sign Up!</h2>
 <div class="row container">
-  <form id="login" class="col s12">
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="first_name" type="text" class="validate" />
-        <label for="first_name">First Name</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="last_name" type="text" class="validate" />
-        <label for="last_name">Last Name</label>
+  <form id="signUp" class="col s12">
+    <div class="row container col s8 offset-s2">
+      <div class="input-field">
+        <input id="name" type="text" class="validate" />
+        <label for="name">Name</label>
       </div>
     </div>
-    <div class="row container">
-      <div class="input-field col s12">
-        <input id="email" type="email" class="validate" />
+    <div class="row container col s8 offset-s2">
+      <div class="input-field">
+        <input id="signUpEmail" type="email" class="validate" />
         <label for="email">Email</label>
       </div>
     </div>
-    <div class="row container">
-      <div class="input-field col s12">
-        <input id="password" type="password" class="validate" />
+    <div class="row container col s8 offset-s2">
+      <div class="input-field">
+        <input id="signUpPassword" type="password" class="validate" />
         <label for="password">Password</label>
+      </div>
+      <div class="row container col s8 offset-s2 center-align">
+        <button
+          class="btn waves-effect waves-light center-align"
+          type="submit"
+          name="action"
+          id="signUpButton"
+        >Sign Up
+          <i class="material-icons right">create</i>
+        </button>
       </div>
     </div>
   </form>
 </div>
+<script src="js/signup.js"></script>

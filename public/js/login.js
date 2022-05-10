@@ -3,8 +3,6 @@ const loginButtonGo = async (e) => {
   const email = document.querySelector("#loginEmail").value.trim();
   const password = document.querySelector("#loginPass").value.trim();
 
-  console.log(email);
-  console.log(password);
   if (email && password) {
     const res = await fetch("/api/users/login", {
       method: "POST",

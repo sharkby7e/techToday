@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
           attributes: ["name"],
         },
       ],
+      order: [["date_created", "DESC"]],
     });
     const posts = postDb.map((x) => x.get({ plain: true }));
 
@@ -30,6 +31,8 @@ router.get("/posts/:id", async (req, res) => {
         },
         {
           model: Comment,
+          separate: true,
+          order: [["date_created", "DESC"]],
           include: [{ model: User, attributes: ["name"] }],
         },
       ],
@@ -49,7 +52,13 @@ router.get("/dashboard", auth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Post }],
+      include: [
+        {
+          model: Post,
+          separate: true,
+          order: [["date_created", "DESC"]],
+        },
+      ],
     });
 
     const user = userData.get({ plain: true });

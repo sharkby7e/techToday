@@ -1,11 +1,58 @@
 <!-- <!DOCTYPE html> -->
 <h3 class="center-align">Welcome to your Dashboard</h3>
-
-<h4 class="center-align">{{name}}'s Posts</h4>
-{{#each posts}}
-  <div class="card-panel amber lighten-5 hoverable">
-    <a class="blue-grey-text" href="/posts/{{id}}">
-      <h4>{{title}}</h4></a>
-    <h5>Written by you on {{format_date date_created}}</h5>
+<div class = "row">
+  <div class = "center-align">
+    <a id = "newPost" class="btn-floating btn-large waves-effect waves-light pulse red"><i class="material-icons">mode_edit</i></a>
   </div>
-{{/each}}
+</div>
+<h4 class="center-align">{{name}}'s Posts</h4>
+<form id = "newPostBox" class="hide col s12">
+  <h2>New Post</h2>
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="newPostTitle" type="text" class="validate"></input>
+      <label for="newPostTitle"{id}}">Title</label>
+    </div>
+    <div class="input-field col s12">
+      <input id="newPostText" type="text" class="validate"></input>
+      <label for="newPostText">Text</label>
+    </div>
+  </div>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+</form>
+
+<div id  = "userPosts">
+
+  {{#each posts}}
+  <div class="card-panel amber lighten-5 hoverable">
+    <div class="row">
+      <div class="col s9">
+        <a class="blue-grey-text" href="/posts/{{id}}">
+          <h4>{{title}}</h4></a>
+        <h5>Written by you on {{format_date date_created}}</h5>
+
+      </div>
+      <div class="col s3">
+        <a link-id = "{{id}}" class="waves-effect waves-light btn-small">View</a><br><br>
+        <button del-id ="{{id}}"  class="red waves-effect waves-light btn-small">Delete</button> </br></br>
+        <button up-id="{{id}}"  class="blue darken-2 waves-effect waves-light btn-small" >Update</button>
+      </div>
+    </div>
+    <div id = "updateContainer" class="row">
+      <form id = "updatePost{{id}}" class="hide col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="updateText{{id}}" class="materialize-textarea"></input>
+            <label class = "active" for="updateText{{id}}">Update post</label>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  {{/each}}
+</div>
+
+<script src="js/dashboard.js"></script>

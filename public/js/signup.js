@@ -14,7 +14,7 @@ const signUpGo = async (e) => {
     if (res.ok) {
       document.location.replace("/dashboard");
     } else {
-      res.json().then((data) => alert(data.message));
+      res.json().then((data) => alert(data.errors[0].message));
     }
   }
 };

@@ -11,7 +11,7 @@ This is the app for you.
 
 ## Link to Deployed Application
 
-[Click to view the deployed application](https://intense-beyond-77466.herokuapp.com/)
+[Click to view the deployed application](https://tech-today.herokuapp.com/)
 
 ![Preview of tech today](./public/images/preview.png)
 
